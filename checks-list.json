@@ -1,0 +1,66 @@
+{
+    "^correcthorsebatterystaple$": {
+        "level": "insecure",
+        "id": "xkcd"
+    },
+
+    "^jeff|geoff$": {
+        "level": "easteregg",
+        "id": "jeff"
+    },
+
+    "^.{1,6}$": {
+        "level": "warning",
+        "id": "lengthVeryShort"
+    },
+
+    "^[a-zA-Z]{1,16}$": {
+        "level": "warning",
+        "id": "possiblyWord"
+    },
+
+    "^[0-9]+$": {
+        "level": "warning",
+        "id": "onlyNumbers"
+    },
+
+    "^([a-zA-Z]+[0-9]+|[0-9]+[a-zA-Z]+)$": {
+        "level": "warning",
+        "id": "wordAndNumber"
+    },
+
+    "^.{7,9}$": {
+        "level": "warning",
+        "id": "lengthShort"
+    },
+
+    "^[A-Za-z]+$": {
+        "level": "warning",
+        "id": "justLetters"
+    },
+
+    "^(?:\\d+[a-zA-Z]|[a-zA-Z]+\\d)[a-zA-Z\\d]*$": {
+        "level": "warning",
+        "id": "noSymbols"
+    },
+
+    "^[\\-\\(\\)\\.\\/\\s0-9]+$": {
+        "level": "warning",
+        "id": "telephone"
+    },
+
+    "(.+)\\1{2,}": {
+        "level": "warning",
+        "id": "repeatedPattern"
+    },
+
+    "[^A-Za-z0-9\\u0000-\\u007E]": {
+        "level": "achievement",
+        "id": "nonStandardCharacters"
+    },
+
+    "^.{17,}$": {
+        "level": "achievement",
+        "id": "lengthLong"
+    }
+}
