@@ -1,0 +1,21 @@
+{
+  "name": "checks",
+  "version": "0.1.0",
+  "description": "Checks passwords for various issues",
+  "main": "checks.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "author": "Small Hadron Collider",
+  "license": "MIT",
+  "repository" : {
+    "type" : "git",
+    "url" : "http://github.com/howsecureismypassword/checks.git"
+  },
+  "dependencies": {
+    "library": "git://github.com/howsecureismypassword/library.git#develop"
+  },
+  "devDependencies": {
+    "buster": "0.7.*"
+  }
+}
