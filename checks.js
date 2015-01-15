@@ -2,7 +2,9 @@
 
 var L = require("library");
 
-var passwordsDictionary = require("./passwords");
+var passwordsDictionaryString = require("./passwords");
+var passwordsDictionary = passwordsDictionaryString[0].split(",");
+
 var patternChecks = require("./checks-list");
 
 var patternCheck = function (message, pattern) {
