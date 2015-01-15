@@ -35,12 +35,12 @@
     },
 
     "^[A-Za-z]+$": {
-        "level": "warning",
+        "level": "notice",
         "id": "justLetters"
     },
 
     "^(?:\\d+[a-zA-Z]|[a-zA-Z]+\\d)[a-zA-Z\\d]*$": {
-        "level": "warning",
+        "level": "notice",
         "id": "noSymbols"
     },
 
