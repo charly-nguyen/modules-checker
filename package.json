@@ -1,8 +1,8 @@
 {
-  "name": "checks",
+  "name": "checker",
   "version": "0.1.0",
   "description": "Checks passwords for various issues",
-  "main": "checks.js",
+  "main": "checker.js",
   "scripts": {
     "test": "node test"
   },
@@ -10,10 +10,10 @@
   "license": "MIT",
   "repository" : {
     "type" : "git",
-    "url" : "http://github.com/howsecureismypassword/checks.git"
+    "url" : "http://github.com/howsecureismypassword/modules-checker.git"
   },
   "dependencies": {
-    "library": "git://github.com/howsecureismypassword/library.git#develop"
+    "library": "git://github.com/howsecureismypassword/modules-library.git#develop"
   },
   "devDependencies": {
     "buster": "0.7.*"
