@@ -2,6 +2,7 @@
 
 var L = require("library");
 
+var checkerDictionary;
 var checks = require("./checks");
 
 var getChecks = function (string) {
@@ -10,7 +11,25 @@ var getChecks = function (string) {
     }, checks));
 };
 
+var translateChecks = function (item) {
+    if (checkerDictionary.hasOwnProperty(item.id)) {
+        var entry = checkerDictionary[item.id];
+
+        return {
+            level: item.level,
+            name: item.value ? entry.name.replace("{{ value }}", item.value) : entry.name,
+            message: item.value ? entry.message.replace("{{ value }}", item.value) : entry.message
+        };
+    }
+
+    throw new Error("checker: Missing dictionary entry " + item.id);
+};
+
 var checker = function (string) {
+    if (!checkerDictionary) {
+        throw new Error("checker: dictionary not set");
+    }
+
     var self = {},
         results;
 
@@ -18,7 +37,7 @@ var checker = function (string) {
         throw Error("checker: Invalid type");
     }
 
-    results = getChecks(string);
+    results = L.map(translateChecks, getChecks(string));
 
     self.isInsecure = function () {
         return L.some(function (item) {
@@ -43,6 +62,10 @@ var checker = function (string) {
     };
 
     return self;
+};
+
+checker.setDictionary = function (dictionary) {
+    checkerDictionary = dictionary;
 };
 
 module.exports = checker;
