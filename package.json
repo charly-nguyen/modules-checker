@@ -1,5 +1,5 @@
 {
-  "name": "checker",
+  "name": "hsimp-checker",
   "version": "0.1.0",
   "description": "Checks passwords for various issues",
   "main": "checker.js",
@@ -13,7 +13,7 @@
     "url" : "http://github.com/howsecureismypassword/modules-checker.git"
   },
   "dependencies": {
-    "library": "git://github.com/howsecureismypassword/modules-library.git#develop"
+    "hsimp-library": "0.1.*"
   },
   "devDependencies": {
     "buster": "0.7.*"
