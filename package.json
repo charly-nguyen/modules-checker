@@ -1,6 +1,6 @@
 {
   "name": "hsimp-checker",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Checks passwords for various issues",
   "main": "checker.js",
   "scripts": {

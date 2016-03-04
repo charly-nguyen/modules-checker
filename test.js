@@ -9,7 +9,7 @@ var assert = buster.referee.assert;
 /**
  * Setup
  */
-var L = require("library");
+var L = require("hsimp-library");
 var checker = require("./checker");
 var checkerDictionary = require("./checker-dictionary");
 
