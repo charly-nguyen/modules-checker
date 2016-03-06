@@ -39,5 +39,16 @@ buster.testCase("checker", {
             assert.same(insecure.message, "Your password is very commonly used. It would be cracked almost instantly.");
             assert.same(insecure.name, "Common Password: In the top 5 most used passwords");
         },
+    },
+
+    "order": function () {
+        var check = checker("password"),
+            results = check.getChecks();
+
+        assert.same(results.length, 4);
+        assert.same(results[0].level, "insecure");
+        assert.same(results[1].level, "warning");
+        assert.same(results[2].level, "warning");
+        assert.same(results[3].level, "notice");
     }
 });

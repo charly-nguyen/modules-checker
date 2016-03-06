@@ -31,13 +31,21 @@ var checker = function (string) {
     }
 
     var self = {},
-        results;
+        results,
+        levels = ["insecure", "warning", "notice", "achievement"];
 
     if (!L.isString(string)) {
         throw Error("checker: Invalid type");
     }
 
-    results = L.map(translateChecks, getChecks(string));
+    results = L.map(translateChecks, getChecks(string)).sort(function (a, b) {
+        var level = function (item) {
+            var level = levels.indexOf(item.level);
+            return level === -1 ? levels.length : level;
+        };
+
+        return level(a) - level(b);
+    });
 
     self.isInsecure = function () {
         return L.some(function (item) {
