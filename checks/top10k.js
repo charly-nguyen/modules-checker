@@ -2,20 +2,10 @@
 
 var L = require("hsimp-library");
 
-var passwordsDictionaryString = require("./passwords");
+var passwordsDictionaryString = require("./top10k.json");
 var passwordsDictionary = passwordsDictionaryString[0].split(",");
 
-var patternChecks = require("./checks-list");
-
-var patternCheck = function (message, pattern) {
-    var regex = new RegExp(pattern);
-
-    return function (password) {
-        return regex.test(password) ? message : false;
-    };
-};
-
-var top10k = function (password) {
+module.exports = function (password) {
     var rank;
 
     password = password.toLowerCase();
@@ -37,5 +27,3 @@ var top10k = function (password) {
         return false;
     }
 };
-
-module.exports = [top10k].concat(L.map(patternCheck, patternChecks));

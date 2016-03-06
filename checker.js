@@ -3,7 +3,7 @@
 var L = require("hsimp-library");
 
 var checkerDictionary;
-var checks = require("./checks");
+var checks = [];
 
 var getChecks = function (string) {
     return L.filter(function (item) { return item; }, L.map(function (check) {
@@ -66,6 +66,10 @@ var checker = function (string) {
 
 checker.setDictionary = function (dictionary) {
     checkerDictionary = dictionary;
+};
+
+checker.setChecks = function (checksArray) {
+    checks = checksArray;
 };
 
 module.exports = checker;

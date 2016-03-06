@@ -15,6 +15,11 @@ var checkerDictionary = require("./checker-dictionary");
 
 checker.setDictionary(checkerDictionary);
 
+var patterns = require("./checks/patterns");
+var top10k = require("./checks/top10k");
+
+checker.setChecks(patterns.concat(top10k));
+
 /**
  * Tests
  */
