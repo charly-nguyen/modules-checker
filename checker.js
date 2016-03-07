@@ -8,7 +8,9 @@ var checks = [];
 var getChecks = function (string) {
     return L.filter(function (item) { return item; }, L.map(function (check) {
         return check(string);
-    }, checks));
+    }, L.reduce(function (checks, check) {
+        return checks.concat(check.get());
+    }, [], checks)));
 };
 
 var translateChecks = function (item) {
@@ -32,7 +34,7 @@ var checker = function (string) {
 
     var self = {},
         results,
-        levels = ["insecure", "warning", "notice", "achievement"];
+        levels = ["highlight", "insecure", "warning", "achievement", "notice"];
 
     if (!L.isString(string)) {
         throw Error("checker: Invalid type");
@@ -76,8 +78,20 @@ checker.setDictionary = function (dictionary) {
     checkerDictionary = dictionary;
 };
 
-checker.setChecks = function (checksArray) {
-    checks = checksArray;
+checker.setChecks = function (set) {
+    var error = new Error("setChecks takes an array of check objects");
+
+    if (!L.isArray(set)) {
+        throw error;
+    }
+
+    set.forEach(function (check) {
+        if (!L.isFunction(check.get)) {
+            throw error;
+        }
+    });
+
+    checks = set; 
 };
 
 module.exports = checker;

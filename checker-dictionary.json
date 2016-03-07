@@ -1,5 +1,5 @@
 {
-    "top10k": {
+    "common": {
         "name": "Common Password: In the top {{ value }} most used passwords",
         "message": "Your password is very commonly used. It would be cracked almost instantly."
     },

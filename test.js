@@ -15,10 +15,13 @@ var checkerDictionary = require("./checker-dictionary");
 
 checker.setDictionary(checkerDictionary);
 
-var patterns = require("./checks/patterns");
-var top10k = require("./checks/top10k");
+var patterns = require("hsimp-checks/checks/patterns");
+var common = require("hsimp-checks/checks/common");
 
-checker.setChecks(patterns.concat(top10k));
+patterns.setDictionary(require("hsimp-checks/dictionaries/patterns.json"));
+common.setDictionary(require("hsimp-checks/dictionaries/top10k.json"));
+
+checker.setChecks([patterns, common]);
 
 /**
  * Tests
